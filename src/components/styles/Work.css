@@ -81,6 +81,19 @@
   margin: 0;
 }
 
+.project-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accentColor);
+  border: 1px solid var(--accentColor);
+  border-radius: 20px;
+  padding: 3px 12px;
+  opacity: 0.85;
+}
+
 .carousel-category {
   font-weight: 200;
   color: #adacac;
@@ -105,6 +118,17 @@
   color: #adacac;
   margin: 6px 0 0;
   font-size: 15px;
+}
+
+.carousel-description {
+  margin: 16px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: #adacac;
+  line-height: 1.7;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+  max-width: 480px;
 }
 
 .carousel-image-wrapper {
@@ -180,41 +204,86 @@
   box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
 }
 
-/* ── Work Image (reused) ── */
+/* ── Work Image — Professional Card ── */
 .work-image {
   display: flex;
   width: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 .work-image-in {
   position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s ease;
+  padding: 12px;
+}
+
+.work-image-in::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(94, 234, 212, 0.04) 0%,
+    transparent 50%
+  );
+  border-radius: 16px;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.work-image-in:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 0 0 1px rgba(94, 234, 212, 0.18),
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(94, 234, 212, 0.08);
+}
+
+.work-image-in:hover::before {
+  opacity: 1;
 }
 
 .work-link {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: var(--backgroundColor);
-  width: 50px;
-  border-radius: 50px;
-  height: 50px;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(94, 234, 212, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  width: 44px;
+  border-radius: 50%;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
-    inset 0px 0px 10px 0px #393939;
-  transition: 0.3s;
+  font-size: 20px;
+  color: var(--accentColor);
+  transition: all 0.3s ease;
   opacity: 0;
+  z-index: 2;
+  transform: translateY(6px);
+}
+
+.work-image-in:hover .work-link {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .work-image a:hover {
   color: inherit;
-}
-
-.work-image a:hover .work-link {
-  opacity: 1;
 }
 
 .work-image video {
@@ -225,12 +294,21 @@
   left: 0;
   background-color: #000;
   object-fit: cover;
+  z-index: 0;
 }
 
 .work-image img {
-  max-width: 100%;
-  max-height: 400px;
-  border-radius: 8px;
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 10px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.work-image-in:hover img {
+  transform: scale(1.04);
 }
 
 /* ── Responsive ── */

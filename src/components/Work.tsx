@@ -5,34 +5,31 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
-  },
-  {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
-  },
-  {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
+    title: "AI Tutor (Insysteltech)",
+    category: "RAG-based Chatbot",
+    tools: "Python, OpenRouter/GPT, RAG, JSON/DB",
     image: "/images/bond.png",
+    tag: "Internship project",
+    description:
+      "Developed a RAG-based AI chatbot that provides accurate, context-aware answers by combining LLMs with a custom knowledge base of 100+ course resources. Built using Python and OpenRouter/GPT APIs, it supports multiple subjects and delivers explanations, resource links, and guided learning through an interactive FAQ interface.",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
+    title: "Wild Animal Detection",
+    category: "Computer Vision & IoT",
+    tools: "Python, YOLO, OpenCV, Gmail API",
+    image: "/images/wild-vision.jpeg",
+    tag: "College major project",
+    description:
+      "Developed a computer vision-based wildlife detection system that identifies animals in real-time using YOLO and OpenCV. Built with Python and IoT integration, the system can trigger instant alerts via Gmail API, enabling efficient wildlife monitoring and conservation support.",
   },
   {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "LegalEase \u2013 AI Legal Assistant",
+    category: "NLP & LLM Application",
+    tools: "Python, LLM, RAG, NLP",
+    image: "/images/law-rag.jpeg",
+    tag: "College major project",
+    description:
+      "Developed an AI-powered legal assistant using LLM, NLP, and RAG, capable of answering legal queries, summarizing documents, and providing context-aware insights. Built with Python, the system enables users to interact with legal information efficiently through a smart conversational interface.",
   },
 ];
 
@@ -104,6 +101,7 @@ const Work = () => {
                         <h3>0{index + 1}</h3>
                       </div>
                       <div className="carousel-details">
+                        <span className="project-tag">{project.tag}</span>
                         <h4>{project.title}</h4>
                         <p className="carousel-category">
                           {project.category}
@@ -112,6 +110,7 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        <p className="carousel-description">{project.description}</p>
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">

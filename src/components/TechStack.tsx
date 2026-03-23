@@ -21,6 +21,13 @@ const imageUrls = [
   "/images/mysql.webp",
   "/images/typescript.webp",
   "/images/javascript.webp",
+  "/images/skill-python.png",
+  "/images/skill-ml.png",
+  "/images/skill-nlp.png",
+  "/images/skill-flask.png",
+  "/images/skill-datavis.jpg",
+  "/images/skill-powerbi.png",
+  "/images/skill-cv.png",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -168,7 +175,7 @@ const TechStack = () => {
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2> My Skillset</h2>
 
       <Canvas
         shadows
